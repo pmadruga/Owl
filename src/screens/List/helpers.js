@@ -14,31 +14,19 @@ export function getLocaleOfTranslation(data) {
  * @returns {object}
  */
 export function getDetailedDescriptionData(data) {
-  return data[0].textAnnotations.slice(1).map((value, index, array) => {
-    const xxRefValue = array[array.length - 1].boundingPoly.vertices[0].x;
-    const yyRefValue = array[array.length - 1].boundingPoly.vertices[0].y;
-    const fontSizeRefValue =
-      array[0].boundingPoly.vertices[3].y - array[0].boundingPoly.vertices[0].y;
-    const text = value.description;
-    const xx = convertCoordsToArFormat({
-      coord: value.boundingPoly.vertices[0].x,
-      ref: xxRefValue
+  return data[0].textAnnotations[0].description
+    .split('\n')
+    .reverse()
+    .map((word, index, array) => {
+      return {
+        text: word,
+        position: {
+          x: 0,
+          y: (index + 1) / array.length
+        },
+        size: 0.1
+      };
     });
-    const yy = convertCoordsToArFormat({
-      coord: array[array.length - index - 1].boundingPoly.vertices[0].y,
-      ref: yyRefValue
-    });
-    const size = calculateFontSize({ value, fontSizeRefValue });
-    return {
-      text,
-      position: {
-        x: xx,
-        y: -index / 20,
-        z: 0
-      },
-      size
-    };
-  });
 }
 
 function convertCoordsToArFormat({ coord, ref }) {
