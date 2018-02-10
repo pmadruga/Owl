@@ -65,12 +65,13 @@ export default class Scan extends Component {
             style={{ flex: 1 }}
             useBase64
             onPictureTaken={this.onPictureTaken}
-            overlayColor="rgba(255,130,0, 0.7)"
+            // overlayColor="rgba(255,130,0, 0.7)"
             enableTorch
-            brightness={0.3}
+            captureMultiple={true}
+            brightness={0}
             saturation={1}
             contrast={1.1}
-            quality={0.5}
+            quality={1}
             onRectangleDetect={
               ({ stableCounter, lastDetectionType }) => {}
               // this.setState({ stableCounter, lastDetectionType })
