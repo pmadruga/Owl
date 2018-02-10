@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Dimensions, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import Camera from 'react-native-camera';
+import ARKit from 'react-native-arkit';
 
 export default class Scan extends Component {
   render() {

@@ -14,11 +14,11 @@ export default class AR extends Component {
           lightEstimationEnabled
           // get the current lightEstimation (if enabled)
           // it fires rapidly, so better poll it from outside with
-          // ARKit.getCurrentLightEstimation()
-          //   onLightEstimation={e => console.log(e.nativeEvent)}
-          //   onPlaneDetected={console.log} // event listener for plane detection
-          //   onPlaneUpdate={console.log} // event listener for plane update
-          //   onPlaneRemoved={console.log} // arkit sometimes removes detected planes
+          //   ARKit.getCurrentLightEstimation()
+          onLightEstimation={e => console.log(e.nativeEvent)}
+          onPlaneDetected={console.log} // event listener for plane detection
+          onPlaneUpdate={console.log} // event listener for plane update
+          onPlaneRemoved={console.log} // arkit sometimes removes detected planes
         >
           <ARKit.Text
             text="ARKit is Cool!"
