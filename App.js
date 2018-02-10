@@ -1,31 +1,24 @@
 // @flow
-
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import AR from './src/AR';
-// import Scan from './src/Scan';
+import AR from './src/screens/AR/';
+import Scan from './src/screens/Scan/';
+import List from './src/screens/List/';
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        {/* <Button title="Go to Scan" onPress={() => this.props.navigation.navigate('Scan')} /> */}
-        <Button title="Go to AR" onPress={() => this.props.navigation.navigate('AR')} />
-      </View>
-    );
-  }
-}
-
-export default StackNavigator({
-  Home: {
-    screen: HomeScreen
+export default StackNavigator(
+  {
+    Scan: {
+      screen: Scan
+    },
+    AR: {
+      screen: AR
+    },
+    List: {
+      screen: List
+    }
   },
-  // Scan: {
-  //   screen: Scan
-  // },
-  AR: {
-    screen: AR
+  {
+    initialRouteName: 'Scan'
   }
-});
+);
