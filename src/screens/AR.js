@@ -3,6 +3,10 @@ import { AppRegistry, View } from 'react-native';
 import { ARKit } from 'react-native-arkit';
 
 export default class AR extends Component {
+  static navigationOptions = {
+    title: 'Show'
+  };
+
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -15,10 +19,10 @@ export default class AR extends Component {
           // get the current lightEstimation (if enabled)
           // it fires rapidly, so better poll it from outside with
           // ARKit.getCurrentLightEstimation()
-          onLightEstimation={e => console.log(e.nativeEvent)}
-          onPlaneDetected={console.log} // event listener for plane detection
-          onPlaneUpdate={console.log} // event listener for plane update
-          onPlaneRemoved={console.log} // arkit sometimes removes detected planes
+          //   onLightEstimation={e => console.log(e.nativeEvent)}
+          //   onPlaneDetected={console.log} // event listener for plane detection
+          //   onPlaneUpdate={console.log} // event listener for plane update
+          //   onPlaneRemoved={console.log} // arkit sometimes removes detected planes
         >
           <ARKit.Text
             text="ARKit is Cool!"
