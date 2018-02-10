@@ -16,9 +16,9 @@
   dependencies:
     react "15.4.2"
 
-"_PocketSVG@git+https://github.com/pocketsvg/PocketSVG.git":
+"_PocketSVG@https://github.com/pocketsvg/PocketSVG":
   version "0.0.0"
-  resolved "git+https://github.com/pocketsvg/PocketSVG.git#5405d0f5838c1242e79b490c6ddf738779e4d5c0"
+  resolved "https://github.com/pocketsvg/PocketSVG#5405d0f5838c1242e79b490c6ddf738779e4d5c0"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -3522,7 +3522,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -3610,6 +3610,13 @@ react-native-arkit@^0.8.0-beta.0:
     fast-deep-equal "^1.0.0"
     lodash "^4.17.4"
     prop-types "^15.5.7"
+
+react-native-camera@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-0.13.0.tgz#7a612eb0de14978c53c22d2211a44a9e4a6ee618"
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
 
 react-native@0.53.0:
   version "0.53.0"
