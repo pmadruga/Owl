@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, FlatList, ActivityIndicator, Button } from 'react-native';
 import { RkText, RkTheme, RkStyleSheet } from 'react-native-ui-kitten';
-import { getLocaleOfTranslation, getGeneralDescriptionData } from '../helpers';
-import data from '../data';
+import {
+  getLocaleOfTranslation,
+  getGeneralDescriptionData,
+  getDetailedDescriptionData
+} from './helpers';
+import data from '../../data';
 
 export default class List extends Component {
-  static navigationOptions = {
-    title: 'List'
+  static navigationOptions = ({ navigation }) => {
+    const params = navigation.state.params || {};
+    return {
+      title: 'List',
+      headerRight: (
+        <Button
+          title="Show"
+          onPress={() => navigation.navigate('AR', getDetailedDescriptionData(params))}
+        />
+      )
+    };
   };
 
-  state = {
-    data
-  };
   render() {
-    let title = `RESULTS (language: ${getLocaleOfTranslation(this.state.data)}) `;
+    const data = this.props.navigation.state.params;
+    let title = `RESULTS (language: ${getLocaleOfTranslation(data)}) `;
     return (
       <View style={styles.container}>
         <RkText rkType="primary header">{title}</RkText>
         <FlatList
-          data={getGeneralDescriptionData(this.state.data)}
+          data={getGeneralDescriptionData(data)}
           renderItem={({ item }) => (
             <View style={styles.row}>
               <Text style={styles.item}>

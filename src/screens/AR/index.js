@@ -8,6 +8,8 @@ export default class AR extends Component {
   };
 
   render() {
+    const data = this.props.navigation.state.params;
+    console.warn(data);
     return (
       <View style={{ flex: 1 }}>
         <ARKit
@@ -24,11 +26,22 @@ export default class AR extends Component {
           //   onPlaneUpdate={console.log} // event listener for plane update
           //   onPlaneRemoved={console.log} // arkit sometimes removes detected planes
         >
-          <ARKit.Text
-            text="ARKit is Cool!"
-            position={{ x: 0.2, y: 0.6, z: 0 }}
-            font={{ size: 0.15, depth: 0.05 }}
-          />
+          {data.map((value, index) => (
+            <ARKit.Text
+              key={`${index}-annotation`}
+              text={value.text}
+              position={value.position}
+              // position={{ x: 0, y: 0, z: 0 }}
+              font={{ size: 0.15, depth: 0.02 }}
+            />
+          ))}
+          {
+            <ARKit.Text
+              text="ARKit is Cool!"
+              position={{ x: 0.2, y: 0.6, z: 0 }}
+              font={{ size: 0.15, depth: 0.05 }}
+            />
+          }
         </ARKit>
       </View>
     );
